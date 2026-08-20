@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+*.onnx
+runs/
+datasets/
+.idea/
+.vscode/
+
