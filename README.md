@@ -30,7 +30,7 @@ The class count may be overridden by an Ultralytics dataset configuration.
 ## Repository layout
 
 ```text
-GOS-YOLO-Detector/
+GOS-YOLO/
 |-- README.md
 |-- LICENSE
 |-- requirements.txt
