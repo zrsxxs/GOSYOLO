@@ -115,6 +115,15 @@ fusion_output = fusion((
 boxes = torch.tensor([[0.0, 0.0, 4.0, 2.0]])
 osa_score = bbox_iou_osa(boxes, boxes, xywh=False)
 ```
+# training
+yolo detect train model=models/GOS-YOLO.yaml data=<your_ceymo.yaml> \
+  imgsz=640 epochs=250 batch=32 optimizer=SGD lr0=0.01 momentum=0.937 \
+  weight_decay=0.0005 patience=100 fliplr=0 flipud=0 seed=0
+
+# evaluation, COCO protocol
+yolo detect val model=<best.pt> data=<your_ceymo.yaml> \
+  imgsz=640 conf=0.001 max_det=300
+
 
 ## Experimental setting reported in the paper
 
@@ -142,6 +151,9 @@ pipeline with a score floor of 0.001 and up to 300 detections per image.
 |---|---:|---:|---:|---:|---:|---:|---:|
 | YOLO11 | 95.56 | 85.45 | 88.98 | 65.16 | 2.58 | 6.30 | 227.9 |
 | GOS-YOLO | 96.96 | 88.18 | 91.59 | 68.12 | 3.54 | 11.40 | 196.6 |
+
+A deviation beyond roughly 0.3 percentage points usually indicates a difference
+in library versions or in the preprocessing path.
 
 ## Datasets
 
